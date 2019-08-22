@@ -49,4 +49,9 @@ public class Entry {
         return this.channel == other.channel && Objects.equals(this.value, other.value);
     }
 
+    @Override
+    public String toString() {
+        return String.format("[Entry - channel: %s, value: %s]", this.channel, this.value);
+    }
+
 }

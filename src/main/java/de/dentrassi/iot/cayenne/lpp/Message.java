@@ -15,6 +15,7 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 public class Message {
 
@@ -50,6 +51,16 @@ public class Message {
         }
 
         return null;
+    }
+
+    @Override
+    public String toString() {
+
+        return this.entries
+                .stream()
+                .map(Object::toString)
+                .collect(Collectors.joining(System.lineSeparator()));
+
     }
 
 }
