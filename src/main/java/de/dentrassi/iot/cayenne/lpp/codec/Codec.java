@@ -17,6 +17,19 @@ public interface Codec<T> {
 
     T decode(ByteBuffer buffer);
 
+    static void putByte(final ByteBuffer buffer, final float value, final float factor) {
+        final int v = (int) (value / factor);
+        buffer.put((byte) v);
+    }
+
+    static float getByte(final ByteBuffer buffer, final float factor) {
+        final byte b = buffer.get();
+
+        final int value = b & 0xFF;
+
+        return value * factor;
+    }
+
     static void putShort(final ByteBuffer buffer, final float value, final float factor) {
         final int v = (int) (value / factor);
         buffer.put((byte) (v >> 8));

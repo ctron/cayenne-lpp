@@ -102,8 +102,8 @@ public final class Parser {
 
                 .registerType((byte) 104,
 
-                        new SimpleCodec<>(b -> Codec.getShort(b, 0.5f), RelativeHumidity::new,
-                                (b, v) -> Codec.putShort(b, v, 0.5f), RelativeHumidity::getValue))
+                        new SimpleCodec<>(b -> Codec.getByte(b, 0.5f), RelativeHumidity::new,
+                                (b, v) -> Codec.putByte(b, v, 0.5f), RelativeHumidity::getValue))
 
                 .registerType((byte) 113, new AccelerometerCodec())
 
